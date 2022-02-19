@@ -1,0 +1,98 @@
+html,
+body {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    background-color: #202124;
+}
+
+#timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+}
+
+.circle-not-selected:hover {
+    stroke-width: 5px;
+    stroke: #fff;
+}
+
+.circle-selected-correct {
+    stroke-width: 5px;
+    stroke: #0f0;
+}
+
+.circle-selected-wrong {
+    stroke-width: 5px;
+    stroke: #f00;
+}
+
+#play-filed-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+}
+
+#play-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 300px;
+    flex-wrap: wrap;
+}
+
+#start-game-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+#title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30%;
+    color: #ffffff;
+}
+
+#title-balls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    color: red;
+}
+
+#button-start {
+    background-color: #202124;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #0f0;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    margin: 0;
+    outline: none;
+    padding: 13px 23px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    touch-action: manipulation;
+    transition: box-shadow 0.2s, -ms-transform 0.1s, -webkit-transform 0.1s,
+        transform 0.1s;
+    user-select: none;
+    -webkit-user-select: none;
+    width: auto;
+}
+
+#button-start:active {
+    transform: scale(0.96);
+}
