@@ -4,25 +4,24 @@ const playSound = (audioFile) => {
     startSound.play();
 }
 
-export const setup = () => {
+let blobs = []
 
+export const setup = (blobArr) => {
+    blobs = blobArr;
 }
 
 export const gameStart = () => {
-    playSound('./audio/game-start.wav');
+    playSound(blobs[0]);
 }
 
 export const gameOver = () => {
-    playSound('./audio/game-over.wav');
+    playSound(blobs[1]);
 }
 
 export const correctCircle = () => {
-    playSound('./audio/correct-circle.wav');
+    playSound(blobs[2]);
 }
 
 export const wrongCircle = () => {
-    playSound('./audio/wrong-circle.wav');
-}
-export const highScore = () => {
-    playSound('./audio/high-score.wav');
+    playSound(blobs[3]);
 }

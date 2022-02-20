@@ -1,6 +1,25 @@
 import * as Sound from "./sounds.js";
 import * as Color from "./colors.js";
 
+
+const audioFiles = ["game-start.wav", "game-over.wav", "correct-circle.wav", "wrong-circle.wav"];
+const audioFilesBlob = [];
+const audioUrl = "https://pushpendersaini0.github.io/color-blind-game/audio/";
+const loadAudioFiles = async () => {
+    for (let i = 0; i < audioFiles.length; i++) {
+        const res = await fetch(audioUrl + audioFiles[i]);
+        const blob = await res.blob();
+        audioFilesBlob.push(URL.createObjectURL(blob));
+    }
+}
+
+loadAudioFiles().then(() => {
+    Sound.setup(audioFilesBlob);
+    document.getElementById("start-game-btn").innerHTML = `<button id="button-start" role="button">Start Game</button>`;
+    document.getElementById("button-start").addEventListener("click", startGameBtn);
+})
+
+
 let circlesTimeout = null;
 const circlesColorLoop = () => {
     const circles = [...document.getElementsByTagName('circle')]
@@ -71,13 +90,13 @@ const setGameOver = () => {
     clearTimeout(clockTimeout);
     Sound.gameOver();
     document.body.innerHTML = `
-    <div id="title">
+    <div class="title">
         <h1>Game Over</h1>
     </div>
-    <div id="title">
+    <div class="title">
         <h1>Score : ${level}</h1>
     </div>
-    <div id="title">
+    <div class="title">
         <h1> Best : ${localStorage.getItem("best")} </h1>
     </div>`;
 
@@ -106,4 +125,3 @@ const circleSelected = (e) => {
 }
 
 circlesColorLoop();
-document.getElementById("button-start").addEventListener("click", startGameBtn);

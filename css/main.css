@@ -71,7 +71,7 @@ body {
     height: 100px;
 }
 
-#title {
+.title {
     display: flex;
     flex-direction: column;
     justify-content: center;
