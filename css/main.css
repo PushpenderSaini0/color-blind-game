@@ -6,8 +6,28 @@ body {
     background-color: #202124;
 }
 
+#clock-circle {
+    stroke-dasharray: 220px;
+    stroke-dashoffset: 0px;
+    stroke-linecap: round;
+    stroke-width: 5px;
+    stroke: green;
+    fill: none;
+    animation: countdown 10s linear infinite forwards;
+}
+
+@keyframes countdown {
+    from {
+        stroke-dashoffset: 0px;
+    }
+    to {
+        stroke-dashoffset: 220px;
+    }
+}
+
 #timer {
     display: flex;
+    color: #fff;
     justify-content: center;
     align-items: center;
     height: 20%;
