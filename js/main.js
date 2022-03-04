@@ -89,6 +89,8 @@ const setLevel = () => {
 const setGameOver = () => {
     clearTimeout(clockTimeout);
     Sound.gameOver();
+    const best = localStorage.getItem("best") || 0;
+    if (best < level) { localStorage.setItem("best", level); }
     document.body.innerHTML = `
     <div class="title">
         <h1>Game Over</h1>
@@ -114,8 +116,6 @@ const circleSelected = (e) => {
         e.target.setAttribute('class', 'circle-selected-wrong');
         wrong += 1;
         if (wrong == 3) {
-            const best = localStorage.getItem("best") || 0;
-            if (best < level) { localStorage.setItem("best", level); }
             setGameOver();
         }
         else {
